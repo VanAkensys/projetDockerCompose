@@ -31,6 +31,7 @@ Merci de suivre les instructions officielles sur le site de Docker pour éviter 
 
 ## Structure du projet
 
+```text
 projetDocker/
 ├── docker-compose.yml
 ├── README.md
@@ -38,7 +39,7 @@ projetDocker/
 │   └── ...
 ├── FormulaireJavaBackend/      # Backend Spring Boot (avec Dockerfile)
 │   └── ...
----
+```
 
 ## Lancer l'application
 
