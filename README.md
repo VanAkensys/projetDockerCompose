@@ -33,40 +33,55 @@ Merci de suivre les instructions officielles sur le site de Docker pour éviter 
 
 ```text
 projetDocker/
-├── docker-compose.yml
-├── README.md
-├── formulaire-angular/         # Projet Angular compilé (ng build)
-│   └── ...
-├── FormulaireJavaBackend/      # Backend Spring Boot (avec Dockerfile)
-│   └── ...
+├── docker-compose.yml               # Fichier de configuration Docker
+├── README.md                        # Ce fichier !
+│
+├── formulaire-angular/              # Frontend Angular compilé
+│   ├── browser/                     # Dossier généré avec `ng build`
+│   ├── Dockerfile                   # Image NGINX personnalisée pour Angular
+│   └── nginx.conf                   # Configuration NGINX pour servir Angular
+│
+├── FormulaireJavaBackend/          # Backend Spring Boot
+│   ├── Dockerfile                   # Dockerfile pour builder le backend
+│   ├── HELP.md                      # Aide générée par Spring Initializr
+│   ├── mvnw                         # Wrapper Maven Linux
+│   ├── mvnw.cmd                     # Wrapper Maven Windows
+│   ├── pom.xml                      # Fichier Maven de configuration
+│   ├── src/                         # Code source Java
+│   └── target/                      # Dossier de build Maven
 ```
 
 ## Lancer l'application
 
 ### Cloner le dépôt
 
+```text
 git clone https://github.com/TON-UTILISATEUR/TON-REPO.git
 cd projetDocker
-
-Construire et lancer les conteneurs
-
+```
+### Construire et lancer les conteneurs
+```text
 docker-compose up --build
+```
 Attendre que les 3 services soient bien lancés (Angular + Backend + MySQL).
 
- Accéder à l'application
+### Accéder à l'application
+ 
 Interface utilisateur (Angular + NGINX) : http://localhost:4200
 
 API backend Spring Boot : http://localhost:8080
 
 Paramètres de base MySQL
-Utilisateur : demoDocker
+**Utilisateur** : demoDocker
 
-Mot de passe : demoDocker
+**Mot de passe** : demoDocker
 
-Arrêter l'application
-Pour arrêter tous les conteneurs :
+### Pour arrêter tous les conteneurs :
+
+```text
 docker-compose down
+```
 
-Auteur
+## Auteur
 TRINH Ngo Van Quoc
 LP DEVOPS – p2203378
