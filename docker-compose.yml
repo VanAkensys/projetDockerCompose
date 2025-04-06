@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:10.6
+    container_name: formulaire-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: van
+      MYSQL_USER: van
+      MYSQL_PASSWORD: vanpassword
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - formulaire-network
+
+  backend:
+    build:
+      context: ./FormulaireJavaBackend
+    container_name: formulaire-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/van?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: van
+      SPRING_DATASOURCE_PASSWORD: vanpassword
+    networks:
+      - formulaire-network
+
+  frontend:
+    build:
+      context: ./formulaire-angular
+      dockerfile: Dockerfile
+    container_name: angular-frontend
+    ports:
+      - "4200:80"
+    volumes:
+      - ./formulaire-angular/browser:/usr/share/nginx/html
+    depends_on:
+      - backend
+    networks:
+      - formulaire-network
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+    driver: local
+
+networks:
+  formulaire-network:
+    driver: bridge
