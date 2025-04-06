@@ -71,7 +71,8 @@ Interface utilisateur (Angular + NGINX) : http://localhost:4200
 
 API backend Spring Boot : http://localhost:8080
 
-Paramètres de base MySQL
+### Paramètres de base MySQL pour se connecter : 
+
 **Utilisateur** : demoDocker
 
 **Mot de passe** : demoDocker
