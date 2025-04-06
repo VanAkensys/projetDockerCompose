@@ -56,7 +56,7 @@ projetDocker/
 ### Cloner le dépôt
 
 ```text
-git clone https://github.com/TON-UTILISATEUR/TON-REPO.git
+git clone https://github.com/VanAkensys/projetDockerCompose.git
 cd projetDocker
 ```
 ### Construire et lancer les conteneurs
