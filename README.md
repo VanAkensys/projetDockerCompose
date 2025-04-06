@@ -6,7 +6,7 @@ Cette application web permet de **générer**, **modifier**, **remplir** et **co
 Elle est composée de :
 -  **formulaire-angular** : le front-end en Angular (compilé et servi par NGINX),
 -  **FormulaireJavaBackend** : le back-end en Java Spring Boot (REST API),
--  **MySQL** : base de données relationnelle pour stocker les données des formulaires et utilisateurs.
+-  **MariaDB** : base de données relationnelle pour stocker les données des formulaires et utilisateurs.
 
 ---
 
@@ -16,7 +16,7 @@ Ce projet a pour but d’apprendre à **conteneuriser une application fullstack*
 - Gérer plusieurs services avec **Docker Compose**
 - Automatiser la création de la base de données avec un script SQL
 - Déployer un front Angular avec NGINX
-- Interconnecter une API Spring Boot à une base MySQL
+- Interconnecter une API Spring Boot à une base MariaDB
 
 ---
 
@@ -63,7 +63,7 @@ cd projetDocker
 ```text
 docker-compose up --build
 ```
-Attendre que les 3 services soient bien lancés (Angular + Backend + MySQL).
+Attendre que les 3 services soient bien lancés (Angular + Backend + MariaDb).
 
 ### Accéder à l'application
  
@@ -71,7 +71,7 @@ Interface utilisateur (Angular + NGINX) : http://localhost:4200
 
 API backend Spring Boot : http://localhost:8080
 
-### Paramètres de base MySQL pour se connecter : 
+### Paramètres pour se connecter : 
 
 **Utilisateur** : demoDocker
 
